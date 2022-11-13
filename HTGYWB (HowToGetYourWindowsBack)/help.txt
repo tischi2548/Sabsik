@@ -1,0 +1,42 @@
+press ESC
+select CDROM
+press SPACE
+"Next"
+"Computer Repair Options"
+"Command Prompt"
+regedit
+select "HKEY_LOCAL_MACHINE"
+"Load Hive"
+navigate to "C:\Windows\System32\config\SOFTWARE"
+name it anything you want, i chose "2"
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon -> change to %SystemRoot%\system32\userinit.exe,
+HKEY_LOCAL_MACHINE\2\Classes\Directory\shell -> change to none
+HKEY_LOCAL_MACHINE\2\Classes\exefile\shell\runas\command -> change to "%1" %*
+HKEY_LOCAL_MACHINE\2\Classes\exefile\shell\open\command -> change to "%1" %*
+HKEY_LOCAL_MACHINE\2\Classes\exefile\DefaultIcon -> change to %1
+repeat for batfile, cmdfile, mscfile, regfile, odtfile, htmlfile, txtfile, pngfile, jpegfile, giffile
+HKEY_LOCAL_MACHINE\2\Classes\batfile\shell\edit\command -> change to %SystemRoot%\System32\NOTEPAD.EXE %1
+close the registry
+exit
+"Turn off PC"
+turn pc on again
+press F1
+select your keyboard layout
+"Troubleshoot"
+"Command Prompt"
+bcdboot c:\Windows
+exit
+"Continue"
+open Group Policy Editor
+User Configuration -> Administrative Templates -> System (left side)
+"Prevent access to the command prompt / registry editing tools" -> change to "Disabled"
+open registry
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer -> delete "NoDesktop"
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer -> delete "NoWinKeys"
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System -> delete "DisableTaskMgr"
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System -> change "shutdownwithoutlogon" to 1
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon -> change "AutoRestartShell" to 1
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System -> change "EnableLUA" to 1
+close registry
+restart PC
+lockscreen and background are in C:\Users\Default\Documents\Sabsik.exe 
