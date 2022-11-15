@@ -15,7 +15,12 @@ HKEY_LOCAL_MACHINE\2\Classes\exefile\shell\runas\command -> change to "%1" %*
 HKEY_LOCAL_MACHINE\2\Classes\exefile\shell\open\command -> change to "%1" %*
 HKEY_LOCAL_MACHINE\2\Classes\exefile\DefaultIcon -> change to %1
 repeat for batfile, cmdfile, mscfile, regfile, odtfile, htmlfile, txtfile, pngfile, jpegfile, giffile
+(and for png, jpeg and gif also ..\printto\command -> "%1" %*)
+(the icons for each file are located below)
+
+for some you also have to edit
 HKEY_LOCAL_MACHINE\2\Classes\batfile\shell\edit\command -> change to %SystemRoot%\System32\NOTEPAD.EXE %1
+
 close the registry
 bcdboot c:\Windows
 exit
