@@ -58,6 +58,12 @@ rd "C:\Users\Public\Desktop" /s /q
 md "C:\Users\Public\Desktop"
 rd "%USERPROFILE%\Desktop" /s /q
 md "%USERPROFILE%\Desktop"
+rd "%USERPROFILE%\Contacts" /s /q
+rd "%USERPROFILE%\3D Objects" /s /q
+rd "%USERPROFILE%\Links" /s /q
+rd "%USERPROFILE%\Saved Games" /s /q
+rd "%USERPROFILE%\Searches" /s /q
+rd "%USERPROFILE%\Favorites" /s /q
 rd "%USERPROFILE%\Downloads" /s /q
 rd "%USERPROFILE%\Documents" /s /q
 rd "%USERPROFILE%\Pictures" /s /q
