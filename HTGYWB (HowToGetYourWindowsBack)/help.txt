@@ -17,13 +17,6 @@ HKEY_LOCAL_MACHINE\2\Classes\exefile\DefaultIcon -> change to %1
 repeat for batfile, cmdfile, mscfile, regfile, odtfile, htmlfile, txtfile, pngfile, jpegfile, giffile
 HKEY_LOCAL_MACHINE\2\Classes\batfile\shell\edit\command -> change to %SystemRoot%\System32\NOTEPAD.EXE %1
 close the registry
-exit
-"Turn off PC"
-turn pc on again
-press F1
-select your keyboard layout
-"Troubleshoot"
-"Command Prompt"
 bcdboot c:\Windows
 exit
 "Continue"
