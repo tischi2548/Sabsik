@@ -12,14 +12,33 @@ navigate to "C:\Windows\System32\config\SOFTWARE"
 name it anything you want, i chose "2"
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon -> change to %SystemRoot%\system32\userinit.exe,
 HKEY_LOCAL_MACHINE\2\Classes\Directory\shell -> change to none
+
 HKEY_LOCAL_MACHINE\2\Classes\exefile\shell\runas\command -> change to "%1" %*
 HKEY_LOCAL_MACHINE\2\Classes\exefile\shell\open\command -> change to "%1" %*
 HKEY_LOCAL_MACHINE\2\Classes\exefile\DefaultIcon -> change to %1
-repeat for batfile, cmdfile, mscfile, regfile, odtfile, htmlfile, txtfile, pngfile, jpegfile, giffile
-(and for png, jpeg and gif also ..\printto\command -> "%1" %*)
-(the icons for each file are located below)
-for some you also have to edit
+
+HKEY_LOCAL_MACHINE\2\Classes\batfile\shell\open\command -> change to "%1" %*
 HKEY_LOCAL_MACHINE\2\Classes\batfile\shell\edit\command -> change to %SystemRoot%\System32\NOTEPAD.EXE %1
+HKEY_LOCAL_MACHINE\2\Classes\batfile\DefaultIcon -> change to %SystemRoot%\System32\imageres.dll,-68
+
+HKEY_LOCAL_MACHINE\2\Classes\regfile\shell\open\command -> change to regedit.exe "%1"
+HKEY_LOCAL_MACHINE\2\Classes\regfile\shell\edit\command -> change to %SystemRoot%\system32\notepad.exe "%1"
+HKEY_LOCAL_MACHINE\2\Classes\regfile\DefaultIcon -> change to %SystemRoot%\regedit.exe,1
+
+HKEY_LOCAL_MACHINE\2\Classes\cmdfile\shell\open\command -> change to "%1" %*
+HKEY_LOCAL_MACHINE\2\Classes\cmdfile\shell\edit\command -> change to %SystemRoot%\System32\NOTEPAD.EXE %1
+
+HKEY_LOCAL_MACHINE\2\Classes\mscfile\shell\open -> %SystemRoot%\system32\mmc.exe "%1" %*
+HKEY_LOCAL_MACHINE\2\Classes\mscfile\shell\runAs -> %SystemRoot%\system32\mmc.exe "%1" %*
+HKEY_LOCAL_MACHINE\2\Classes\mscfile\DefaultIcon -> change to %1
+
+HKEY_LOCAL_MACHINE\2\Classes\txtfile\shell\open\command -> change to %SystemRoot%\System32\NOTEPAD.EXE %1
+HKEY_LOCAL_MACHINE\2\txtfile\DefaultIcon -> change to %SystemRoot%\system32\imageres.dll,-102
+
+HKEY_LOCAL_MACHINE\2\Classes\htmlfile\shell\open\command -> change to "C:\Program Files\Internet Explorer\iexplore.exe" %1
+HKEY_LOCAL_MACHINE\2\Classes\htmlfile\shell\edit\command -> change to %SystemRoot%\System32\NOTEPAD.EXE %1
+HKEY_LOCAL_MACHINE\2\Classes\htmlfile\DefaultIcon -> change to %ProgramFiles%\Internet Explorer\iexplore.exe,-17
+
 close the registry
 bcdboot c:\Windows
 exit
